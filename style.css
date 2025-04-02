@@ -21,3 +21,19 @@ body {
 	max-height: 100%; 
 	object-fit: contain;
 }
+
+.counter_message { 
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	bottom: -30px;
+}
+
+#message, 
+#counter {
+	font-size: 30px;
+	text-align: center;
+	color: black;
+	display: inline-block;
+	font-weight: bolder;
+}
