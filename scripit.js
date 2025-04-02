@@ -22,5 +22,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(updateCounter, 2000);
 });
-
-
