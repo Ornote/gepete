@@ -27,11 +27,12 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	top: 13px;
-	opacity: 0.15;
+	
 }
 
 #message, 
-#counter {
+#counter,
+.footer  {
 	font-family: Calibri;
 	font-size: 22px;
 	letter-spacing: 1.2px;
@@ -39,4 +40,12 @@ body {
 	color: black;
 	display: inline-block;
 	font-weight: bolder;
+	opacity: 0.15;
+}
+
+.footer { 
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	bottom: -5px;
 }
