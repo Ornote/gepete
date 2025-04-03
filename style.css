@@ -26,15 +26,17 @@ body {
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	bottom: -15px;
+	top: 15px;
+	opacity: 0.2;
 }
 
 #message, 
 #counter {
-	font-size: 30px;
+	font-family: Calibri;
+	font-size: 25px;
+	letter-spacing: 1px;
 	text-align: center;
 	color: black;
 	display: inline-block;
 	font-weight: bolder;
 }
-
