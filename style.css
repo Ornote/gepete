@@ -31,8 +31,7 @@ body {
 }
 
 #message, 
-#counter,
-.footer  {
+#counter  {
 	font-family: Calibri;
 	font-size: 22px;
 	letter-spacing: 1.2px;
@@ -43,9 +42,37 @@ body {
 	opacity: 0.15;
 }
 
-.footer { 
+.footer{  
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	bottom: -5px;
+    z-index: 999999;
+}
+
+/* Form */
+
+.gepete-form {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-button {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    opacity: .2;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #4682b4;
+}
+
+.cta-button:active {
+    background-color: #005f8a;
 }
