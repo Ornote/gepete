@@ -3,23 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/HT6LbSgw/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ChatNot Grognon">
+  <meta name="keywords" content="chatbot agent conversationnel gpt humour vanne chambreur taquin GTPT Ornote ">
+  <meta name="author" content="Ornote GPT">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Gépété | Chat grognon">
+  <meta property="og:description" content="L'IA qui comprend tout àmoitié, chat qui te chambre">
+  <meta property="og:url" content="https://ornote.github.io/gepete/">
+  <meta property="og:type" content="website">    
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>? Gpété ¿</title>
   <style>
   </style>
 </head>
+
 <body class="body_gpte">
+
+  <div class="beta-star">⭐️ Version très Bêta ⭐️</div>
+
   <section id="chat_content" class="gpte_ask">
-  <h1 class="chat_title">Chat Gpété 🤖 – "ChatBot à peu près" créé par Minos & Cortux</h1>
+  <h1 class="chat_title"><span class="glitch" data-text="? Gpété ¿">? Gpété ¿</span> 🤖 – "ChatBot à peu près"</h1>
   <div id="chat"></div>
   <input type="text" id="userInput" placeholder="Parle à Minos...">
   <button onclick="sendMessage()">Dis moi</button>
 </section>
 
-<iframe src="https://suno.com/embed/3822b126-3857-4ea7-982e-c2c2c5df33fc" width="760" height="240"><a href="https://suno.com/song/3822b126-3857-4ea7-982e-c2c2c5df33fc">Listen on Suno</a></iframe>
+  <div class="audio-wrapper">
+    <button class="funky-play-button">▶</button>
+    <audio controls>
+      <source src="minos.mp3" type="audio/mpeg">
+      Ton navigateur ne supporte pas l’audio.
+    </audio>
+  </div>
+
+  <footer class="the_end">
+    <a href="#">Credits | Mentions Légales</a>
+  </footer>
 
   <script>
     const chat = document.getElementById("chat");
-
     function sendMessage() {
       const input = document.getElementById("userInput");
       const text = input.value.trim();
