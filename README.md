@@ -1,4 +1,4 @@
-# Gépété
+# Gpété
 IA qui comprend tout à moitié
 Alright, prépare-toi à voir un README qui sent la ferraille, l'ego et la mauvaise foi :
 
