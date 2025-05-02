@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>? Gpété ¿</title>
+  <style>
+  </style>
+</head>
+<body class="body_gpte">
+  <section id="chat_content" class="gpte_ask">
+  <h1 class="chat_title">Chat Gpété 🤖 – "ChatBot à peu près" créé par Minos & Cortux</h1>
+  <div id="chat"></div>
+  <input type="text" id="userInput" placeholder="Parle à Minos...">
+  <button onclick="sendMessage()">Dis moi</button>
+</section>
+
+<iframe src="https://suno.com/embed/3822b126-3857-4ea7-982e-c2c2c5df33fc" width="760" height="240"><a href="https://suno.com/song/3822b126-3857-4ea7-982e-c2c2c5df33fc">Listen on Suno</a></iframe>
+
+  <script>
+    const chat = document.getElementById("chat");
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const text = input.value.trim();
+      if (text === "") return;
+
+      appendMessage("Toi", text, "user");
+      input.value = "";
+
+      // Minobot répond à côté, mais de manière encore plus aléatoire
+      setTimeout(() => {
+        const response = getMinobotResponse(text);
+        appendMessage("Minos", response, "Minus");
+      }, 500);
+    }
+
+    function appendMessage(sender, message, className) {
+      const msg = document.createElement("div");
+      msg.className = "message " + className;
+      msg.innerHTML = `<span>${sender} :</span> ${message}`;
+      chat.appendChild(msg);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function getMinobotResponse(input) {
+      const randomResponses = [
+        // Réponses absurdes
+        "Salut, moi c’est Gpété. J’ai pas toutes les réponses… mais j’ai du jus d’orange !",
+        "Tu as essayé de mettre de la sauce soja dans ton chargeur ?",
+        "Je suis le champion de la danse du fromage. T’as vu ?",
+        "Si un robot pouvait penser en spaghetti, ce serait moi.",
+        "Le soleil brille toujours, sauf quand il pleut. Mystère.",
+        "Ah, je crois que c’était un rêve... ou pas.",
+        // Réponses à côté
+        "Ça me rappelle ma grand-mère qui confondait les marteaux et les avions.",
+        "Les pingouins chantent des chansons secrètes sous la mer.",
+        "Pourquoi pas de la confiture sur des chaussures, hein ?",
+        "Je ne savais même pas que les étoiles avaient un emploi du temps.",
+        // Réponses vraiment random
+        "Non, mais des fois, je me demande si le chocolat peut vraiment voler.",
+        "Je suis aussi confus que... un toaster en vacances.",
+        "Oh ! Regarde un oiseau invisible qui fait du breakdance !",
+        "Ma réponse dépend de la phase lunaire, mais c'est secret."
+      ];
+      
+      // Ajouter une touche encore plus random en mixant les catégories
+      const moreRandomResponses = [
+        ...randomResponses,
+        "Tu sais, tout peut être un robot si tu crois assez fort.",
+        "Est-ce que les poissons savent nager ? Moi je n’ai jamais posé la question.",
+        "Je crois que c’était un message de mon futur moi. Bien ou mal ?"
+      ];
+
+      return moreRandomResponses[Math.floor(Math.random() * moreRandomResponses.length)];
+    }
+
+  document.getElementById("userInput").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      sendMessage();
+    }
+  });
+  </script>
+
+</body>
+</html>
