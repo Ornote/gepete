@@ -354,8 +354,12 @@ audio {
 	padding: 0 10px
 }
 
-.the_end-credits a{
+.the_end-credits a {
 	color: white;
+}
+
+.version-ascccii {
+	text-align: center;
 }
 
 /* Scrollbar */
