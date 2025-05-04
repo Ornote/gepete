@@ -400,4 +400,9 @@ audio {
   	position: relative;
   	margin-left: 50px;
   }
+
+  .version-ascccii {
+  	display: none;
+  }
+
 }
