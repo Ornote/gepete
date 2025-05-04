@@ -405,6 +405,10 @@ audio {
   	display: none;
   }
 
+  .credits ul{
+  	margin-left: 0;
+  }
+
   .the_end {
   	margin: 10px 0 0 5px;
   }
