@@ -405,4 +405,8 @@ audio {
   	display: none;
   }
 
+  .the_end {
+  	margin: 10px 0 0 5px;
+  }
+
 }
