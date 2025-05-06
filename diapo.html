@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Slideshow Vintage 80’s</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/HT6LbSgw/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ChatNot Grognon">
+  <meta name="keywords" content="chatbot agent conversationnel gpt humour vanne chambreur taquin GTPT Ornote ">
+  <meta name="author" content="Ornote GPT">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Gépété | Chat grognon">
+  <meta property="og:description" content="L'IA qui comprend tout àmoitié, chat qui te chambre">
+  <meta property="og:url" content="https://ornote.github.io/gepete/">
+  <meta property="og:type" content="website">    
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>? Gpété ¿ | Diapo</title>
+</head>
+<body>
+
+  <div id="slideshow">
+    <img src="images/slide1.jpg" class="active" />
+    <img src="images/slide2.jpg" />
+    <img src="images/slide3.jpg" />
+  </div>
+
+  <!-- Le son “kiltch” à jouer à chaque diapo -->
+  <audio id="click-sound" src="audio/kiltch.mp3" preload="auto"></audio>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('#slideshow img'));
+    const clickSound = document.getElementById('click-sound');
+
+    let current = 0;
+    const interval = 3000; // millisecondes entre chaque diapo
+
+    function nextSlide() {
+      // retire l’ancienne
+      slides[current].classList.remove('active');
+      // incrémente l’index (boucle)
+      current = (current + 1) % slides.length;
+      // active la nouvelle
+      slides[current].classList.add('active');
+      // joue le son
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+
+    // Lancer le cycle
+    setInterval(nextSlide, interval);
+  </script>
+
+</body>
+</html>
