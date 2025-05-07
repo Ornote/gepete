@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Gpété | Chat grogon | V. Bêta</title>
+  <link  href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/HT6LbSgw/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ChatNot Grognon">
+  <meta name="keywords" content="chatbot agent conversationnel gpt humour vanne chambreur taquin GTPT Ornote ">
+  <meta name="author" content="Ornote GPT">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Gépété | Chat grognon">
+  <meta property="og:description" content="L'IA qui comprend tout àmoitié, chat qui te chambre">
+  <meta property="og:url" content="https://ornote.github.io/gepete/">
+  <meta property="og:type" content="website">    
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+  <header>
+  </header>
+
+  <main>
+
+  	<div class="main_content">
+  		<img src="https://i.ibb.co/4nbZ0MjV/Chat-GPT-Image-1-avr-2025-08-04-53-1.png" alt="Chat-Gépété">
+  	</div>
+  	<div class="counter_message">
+		<div id="message">Dans ta gueule dans </div>
+		<div id="counter"></div>
+  	</div>
+
+  </main>
+
+  <footer>
+     <div class="footer">
+       <a class="cta-button" href="https://ornote.github.io/gepete/minos.html">TEST MOI</a>
+     </div>
+
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const messages = [
+        "Dent ta gueule dans...",
+        "Prépare-toi, c'est pour bientôt... ou pas.",
+        "Encore un peu de patience, ou pas.",
+        "Presque prêt ! Enfin, selon mes sources...",
+        "Juste un peu plus longtemps... ou toute la vie."
+    ];
+
+    let counter = Math.floor(Math.random() * 1000) + 100; // Début absurde
+    const counterElement = document.getElementById("counter");
+    const messageElement = document.getElementById("counter_message");
+
+    function updateCounter() {
+        counter += Math.floor(Math.random() * 10) - 5; // Monte ou descend aléatoirement
+        counterElement.innerText = `${counter} jours`;
+
+        if (Math.random() < 0.1) { // Change le message parfois
+            messageElement.innerText = messages[Math.floor(Math.random() * messages.length)];
+        }
+    }
+
+    setInterval(updateCounter, 2000);
+  });
+  </script>
+
+</body>
+</html>
