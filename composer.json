@@ -22,7 +22,8 @@
         "cweagans/composer-patches": "^1.7",
         "drush/drush": "^11 || ^12",
         "drupal/gin": "^4.0",
-        "drupal/admin_toolbar": "^3.5"
+        "drupal/admin_toolbar": "^3.5",
+        "drupal/aichat": "^1.0@alpha"
     },
     "require-dev": {
         "drupal/core-dev": "^10"
