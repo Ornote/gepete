@@ -389,6 +389,7 @@ audio {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   height: 100vh;
+  width: 50vw;
 }
 
  #slideshow img.active {
