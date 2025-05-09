@@ -412,6 +412,7 @@ audio {
 /* Bordure de diapo légèrement tordue */
 #slideshow {
   position: relative;
+  overflow: hidden;
 }
 
 #slideshow::before {
