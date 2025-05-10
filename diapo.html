@@ -27,6 +27,7 @@
     </div>
     <div class="slide">
       <img src="https://ornote.github.io/gepete/3.png" class="diapo_img"  alt="Minos 3" title="Minos3">
+    </div>
     <div class="slide">
       <img src="https://ornote.github.io/gepete/4.png" class="diapo_img"  alt="Minos 5" title="Minos5">
     </div>
@@ -36,7 +37,7 @@
   <audio id="click-sound" src="https://ornote.github.io/gepete/kiltch.mp3" preload="auto"></audio>
 
   <script>
-    const slides = Array.from(document.querySelectorAll('.slide img'));
+    const slides = Array.from(document.querySelectorAll('.slide'));
     const clickSound = document.getElementById('click-sound');
 
     let currentSlide = 0;
