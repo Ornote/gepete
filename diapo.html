@@ -15,6 +15,44 @@
   <meta property="og:type" content="website">    
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>? Gpété ¿ | Diapo</title>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Diaporama - Les aventures de Minos",
+  "url": "https://gpete.org/diaporama",
+  "hasPart": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://gpete.org/images/minos-toupie.jpg",
+      "caption": "Minos et ses pâtes en forme de toupie",
+      "author": {
+        "@type": "Person",
+        "name": "Ornote"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://gpete.org/images/minos-playmobils.jpg",
+      "caption": "Minos organise son armée de Playmobils",
+      "author": {
+        "@type": "Person",
+        "name": "Ornote"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://gpete.org/images/minos.png",
+      "caption": "Minos proclame un pape en chamallow",
+      "author": {
+        "@type": "Person",
+        "name": "Ornote"
+      }
+    }
+  ]
+}
+</script>
+
 </head>
 <body>
 
@@ -37,7 +75,7 @@
   <audio id="click-sound" src="https://ornote.github.io/gepete/kiltch.mp3" preload="auto"></audio>
 
   <script>
-    const slides = Array.from(document.querySelectorAll('.slide'));
+    const slides = Array.from(document.querySelectorAll('.slide img'));
     const clickSound = document.getElementById('click-sound');
 
     let currentSlide = 0;
