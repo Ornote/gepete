@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co/HT6LbSgw/favicon.png">
+  <link  href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ChatNot Grognon">
+  <meta name="keywords" content="chatbot agent conversationnel gpt humour vanne chambreur taquin GTPT Ornote ">
+  <meta name="author" content="Ornote GPT">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Gépété | Chat grognon">
+  <meta property="og:description" content="L'IA qui comprend tout àmoitié, chat qui te chambre">
+  <meta property="og:url" content="https://ornote.github.io/gepete/">
+  <meta property="og:type" content="website">    
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>404 - Minos s'est perdu</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', sans-serif;
+      background: radial-gradient(ellipse at center, #0e0e2c 0%, #000000 100%);
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-top: 2rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    #minos {
+      width: 13%;
+      transition: transform 0.5s ease;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    #minos {
+      background-color: #ffcc00;
+      border: none;
+      padding: 5px;
+      font-size: 1rem;
+      border-radius: 20px;
+      margin-top: 2rem;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ffcc00aa;
+      transition: transform 0.2s;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    #minos:hover {
+      transform: scale(6);
+      color: black;
+      transition: 0.5s;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>404 : Minos s’est perdu !</h1>
+  <p>On l’a vu partir avec une banane et des haricots rouges…</p>
+  <br />
+  <a id="minos" href="/jeu-minos.html">🚀 Ramener Minos <br>à la maison</a>
+
+  <div class="stars" id="stars"></div>
+
+  <script>
+    // Animation pour faire tourner Minos un peu perdu
+    let angle = 0;
+    setInterval(() => {
+      angle += 2;
+      document.getElementById("minos").style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+    }, 50);
+
+    // Générer des petites étoiles
+    const starsContainer = document.getElementById("stars");
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      starsContainer.appendChild(star);
+    }
+
+    // Bouton redirection
+    function ramenerMinos() {
+      window.location.href = "/";
+    }
+  </script>
+</body>
+</html>
