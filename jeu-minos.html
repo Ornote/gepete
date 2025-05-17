@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/HT6LbSgw/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ChatNot Grognon">
+  <meta name="keywords" content="chatbot agent conversationnel gpt humour vanne chambreur taquin GTPT Ornote ">
+  <meta name="author" content="Ornote GPT">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Gépété | Chat grognon">
+  <meta property="og:description" content="L'IA qui comprend tout àmoitié, chat qui te chambre">
+  <meta property="og:url" content="https://ornote.github.io/gepete/">
+  <meta property="og:type" content="website">    
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Minos dans le trou noir</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #000010 0%, #000000 100%);
+      overflow: hidden;
+      font-family: 'Comic Sans MS', sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 2rem;
+      font-size: 3rem;
+    }
+
+    #jeu {
+      position: relative;
+      width: 100vw;
+      height: 70vh;
+      overflow: hidden;
+    }
+
+    #minos {
+      position: absolute;
+      width: 80px;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    #trou-noir {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, #333, #000);
+      border-radius: 50%;
+      z-index: 0;
+      box-shadow: 0 0 20px 5px #000;
+    }
+
+    button {
+      padding: 0.8rem 1rem;
+      background: #ffcc00;
+      border: none;
+      border-radius: 20px;
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      display: none;
+      margin-top: -500px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>😱 Minos va tomber ! Sauve-le !</h1>
+  <div id="jeu">
+    <img id="minos" src="mqt.png" alt="Minos" />
+    <div id="trou-noir"></div>
+  </div>
+  <button id="restartBtn" onclick="restartGame()">Rejouer</button>
+
+  <footer class="the_end-credits">
+    <a href="minos.html"><< Retour</a>
+  </footer>
+
+  <script>
+    const minos = document.getElementById("minos");
+    const jeu = document.getElementById("jeu");
+    const restartBtn = document.getElementById("restartBtn");
+
+    let y = 0;
+    let x = Math.random() * (window.innerWidth - 80);
+    let speed = 2;
+    let falling;
+
+    function startFall() {
+      minos.style.left = `${x}px`;
+      minos.style.top = `${y}px`;
+
+      falling = setInterval(() => {
+        y += speed;
+        minos.style.top = `${y}px`;
+        speed += 0.3; // Accélération
+
+        if (y > window.innerHeight - 100) {
+          clearInterval(falling);
+          minos.style.display = "none";
+          restartBtn.style.display = "inline-block";
+          document.querySelector("h1").textContent = "💥 Trop tard ! Minos est tombé !";
+        }
+      }, 30);
+    }
+
+    minos.onclick = () => {
+      clearInterval(falling);
+      minos.style.transform = "scale(1.3)";
+      document.querySelector("h1").textContent = "🎉 Bravo ! Tu as sauvé Minos !";
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1000);
+    };
+
+    function restartGame() {
+      y = 0;
+      speed = 2;
+      x = Math.random() * (window.innerWidth - 80);
+      minos.style.display = "block";
+      minos.style.transform = "scale(1)";
+      restartBtn.style.display = "none";
+      document.querySelector("h1").textContent = "😱 Minos va tomber ! Sauve-le !";
+      startFall();
+    }
+
+    // Lancer le jeu au chargement
+    startFall();
+  </script>
+</body>
+</html>
