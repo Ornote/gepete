@@ -37,7 +37,6 @@
       overflow: hidden;
     }
 
-
     #jeu img {
       border-radius: 50%;
     }
@@ -47,7 +46,7 @@
       width: 80px;
       transition: transform 0.2s;
       cursor: pointer;
-      border-radius: 50%; 
+      border-radius: 50%;
     }
 
     #trou-noir {
@@ -63,6 +62,38 @@
       box-shadow: 0 0 20px 5px #000;
     }
 
+    #target {
+      position: absolute;
+      bottom: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 20px;
+      font-weight: bold;
+      color: white;
+      z-index: 1;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, #333, #000);
+      border-radius: 50%;
+      box-shadow: 0 0 20px 5px #000;
+    }
+
+    .minos_home {
+      margin-top: 28px;
+    }
+
+    .target_inner {
+      margin-top: 39px;
+    }
+
+    .retest {
+      padding: 22px;
+    }
+
+    .hovered {
+      opacity: 0.7;
+    }
+
     button {
       padding: 0.6rem;
       background: #ffcc00;
@@ -72,74 +103,105 @@
       margin-top: 1rem;
       cursor: pointer;
       display: none;
-      margin-top: -500px;
     }
   </style>
 </head>
 <body>
 
   <h1>😱 Minos va tomber ! Sauve-le !</h1>
+
   <div id="jeu">
-    <img id="minos" src="mqt.png" alt="Minos" />
-    <div id="trou-noir"></div>
+    <img id="minos" src="mqt.png" alt="Minos" draggable="true" />
+
+    <div id="target">
+      <p class="target_inner">Maison de Minos 🏠</p>
+    </div>
   </div>
+
   <button id="restartBtn" onclick="restartGame()">Rejouer</button>
 
-  <footer class="the_end-credits">
-    <a href="minos.html"><< Retour</a>
-  </footer>
+   <!-- <a href="minos.html" class="the_end-credits"><< Retour</a> -->
 
-  <script>
-    const minos = document.getElementById("minos");
-    const jeu = document.getElementById("jeu");
-    const restartBtn = document.getElementById("restartBtn");
 
-    let y = 0;
-    let x = Math.random() * (window.innerWidth - 80);
-    let speed = 2;
-    let falling;
+<script>
+  const minos = document.getElementById('minos');
+  const target = document.getElementById('target');
+  const restartBtn = document.getElementById("restartBtn");
 
-    function startFall() {
-      minos.style.left = `${x}px`;
-      minos.style.top = `${y}px`;
+  // Drag
+  minos.addEventListener('dragstart', e => {
+    e.dataTransfer.setData('text/plain', 'minos');
+  });
 
-      falling = setInterval(() => {
-        y += speed;
-        minos.style.top = `${y}px`;
-        speed += 0.3; // Accélération
+  target.addEventListener('dragover', e => {
+    e.preventDefault();
+    target.classList.add('hovered');
+  });
 
-        if (y > window.innerHeight - 100) {
-          clearInterval(falling);
-          minos.style.display = "none";
-          restartBtn.style.display = "inline-block";
-          document.querySelector("h1").textContent = "💥 Trop tard ! Minos est tombé !";
-        }
-      }, 30);
-    }
+  target.addEventListener('dragleave', () => {
+    target.classList.remove('hovered');
+  });
 
-    minos.onclick = () => {
+  target.addEventListener('drop', e => {
+    e.preventDefault();
+    const data = e.dataTransfer.getData('text/plain');
+    if (data === 'minos') {
+      target.innerHTML = '<p class="minos_home">🎉 Bravo <em>Minos</em> est rentré 🏠</p>';
+      minos.style.display = 'none';
       clearInterval(falling);
-      minos.style.transform = "scale(1.3)";
-      document.querySelector("h1").textContent = "🎉 Bravo ! Tu as sauvé Minos !";
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 1000);
-    };
-
-    function restartGame() {
-      y = 0;
-      speed = 2;
-      x = Math.random() * (window.innerWidth - 80);
-      minos.style.display = "block";
-      minos.style.transform = "scale(1)";
-      restartBtn.style.display = "none";
-      document.querySelector("h1").textContent = "😱 Minos va tomber ! Sauve-le !";
-      startFall();
+      document.querySelector("h1").textContent = "🎉 Tu as sauvé Minos à temps !";
+      restartBtn.style.display = "inline-block";
     }
+  });
 
-    // Lancer le jeu au chargement
+  // Chute
+  let y = 0;
+  let x = Math.random() * (window.innerWidth - 80);
+  let speed = 0.05;
+  let falling;
+
+  function startFall() {
+    y = 0;
+    speed = 0.05;
+    minos.style.left = `${x}px`;
+    minos.style.top = `${y}px`;
+
+    falling = setInterval(() => {
+      y += speed;
+      minos.style.top = `${y}px`;
+      speed += 0.05;
+
+      if (y > window.innerHeight - 100) {
+        clearInterval(falling);
+        minos.style.display = "none";
+        restartBtn.style.display = "inline-block";
+        document.querySelector("h1").textContent = "💥 Trop tard ! Minos est tombé !";
+      }
+    }, 30);
+  }
+
+  minos.onclick = () => {
+    clearInterval(falling);
+    minos.style.transform = "scale(1.3)";
+    document.querySelector("h1").textContent = "🎉 Bravo ! Tu as sauvé Minos !";
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 1000);
+  };
+
+  function restartGame() {
+    x = Math.random() * (window.innerWidth - 80);
+    y = 0;
+    minos.style.display = "block";
+    minos.style.transform = "scale(1)";
+    restartBtn.style.display = "none";
+    target.innerHTML = '<p class="retest">Encore Minos à la maison</p>'
+    document.querySelector("h1").textContent = "😱 Minos va tomber ! Sauve-le !";
     startFall();
-  </script>
+  }
+
+  startFall();
+</script>
+    
 </body>
 </html>
-      
