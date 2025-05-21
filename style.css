@@ -350,7 +350,8 @@ audio {
 }
 
 .the_end-credits {
-	padding: 0 10px
+	padding: 0 10px;
+  position: absolute;
 }
 
 .the_end-credits a {
@@ -442,12 +443,11 @@ audio {
 }
 
 .slide:first-child {
-  display: block; /* Pour afficher la première image par défaut */
+  display: block; 
 }
 
 .slide img {
   width: 100%;
-  height: auto;
   display: block;
   height: 100vh;
     /* Ton filtre principal */
@@ -524,4 +524,19 @@ audio {
   	margin: 10px 0 0 5px;
   }
 
+}
+
+
+/* RESPOnSIVE Mobile*/
+#flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease-in;
 }
